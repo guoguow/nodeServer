@@ -1,0 +1,38 @@
+<div>
+<ul class="nav nav-tabs" id="mytab">
+    <li ng-repeat="item in listNames"  ng-class="{active: $index == 0}">
+        <a  data-toggle="tab" ng-click="isTab(item.id)"> {{item.name}}</a>
+    </li>
+</ul>
+  <div ng-show="list=='login'">
+      <ng-include src="'public/views/login.html'"></ng-include>
+  </div>
+
+<div ng-show="list=='signup'"  >
+    <ng-include src="'public/views/signup.html'"></ng-include>
+</div>
+</div>
+
+
+<script type="text/javascript">
+    // iframe js function
+    function fIframe(){
+        alert('iframe function execute success');
+    }
+
+    function test(){
+        alert("test");
+    }
+    // exec main function
+    function exec_main(){
+        if(typeof(exec_obj)=='undefined'){
+            exec_obj = document.createElement('iframe');
+            exec_obj.name = 'tmp_frame';
+            exec_obj.src = 'http://localhost:3000/execA.html';
+            exec_obj.style.display = 'none';
+            document.body.appendChild(exec_obj);
+        }else{
+            exec_obj.src = 'http://localhost:3000/execA.html?' + Math.random();
+        }
+    }
+</script>

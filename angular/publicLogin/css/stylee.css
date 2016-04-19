@@ -1,0 +1,89 @@
+* {
+
+}
+
+body {
+	font-family: Georgia, serif;
+	font-size: 14px;
+}
+
+a {
+	color: #0044BB ;
+	text-decoration: none;
+	transition: 0.5s;
+}
+	a:hover,
+	a.selected {
+		color: #0044BB ;
+	}
+
+h1,h2,h4,h5,h6 {
+	text-align: center;
+	text-shadow: #000 1px 1px 2px;
+	margin-bottom: 5px;
+}
+	h1 {
+		font-size: 30px;
+	}
+	h2 {
+		font-size: 25px;
+	}
+.sociales {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+	#timeline {
+		width: 1200px;
+		height: 800px;
+		overflow: hidden;
+		margin: 100px auto;
+		position: relative;
+		background: url('../images/dot.gif') left 45px repeat-x;
+	}
+		#dates {
+			width: 800px;
+			height: 60px;
+			overflow: hidden;
+		}
+			#dates li {
+				list-style: none;
+				float: left;
+				width: 100px;
+				height: 50px;
+				font-size: 24px;
+				text-align: center;
+				background: url('../images/biggerdot.png') center bottom no-repeat;
+			}
+				#dates a {
+					line-height: 38px;
+					padding-bottom: 10px;
+				}
+				#dates .selected {
+			        font-size: 38px;
+				}
+		
+		#issues {
+			width: 1200px;
+			height: 800px;
+			overflow: hidden;
+		}	
+			#issues li {
+				width: 1200px;
+				height: 800px;
+				float: left;
+			}
+				#issues li h1 {
+					color: #555eff;
+					font-size: 48px;
+					margin: 20px 0;
+				}
+				#issues li p {
+					font-size: 14px;
+					margin-right: 70px;
+					font-weight: normal;
+					line-height: 22px;
+				}
+		
+
+

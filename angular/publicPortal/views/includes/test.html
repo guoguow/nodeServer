@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap 实例（Carousel）插件方法</title>
+    <link href="/public/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/public/js/lib/jquery.minv1.js"></script>
+    <script src="/public/js/lib/bootstrap.minv1.js"></script>
+    <script src="/public/js/lib/angularv1.js"></script>
+    <script src="/public/js/lib/angular/ui-bootstrap-tpls-0.14.2.js"></script>
+    <script>
+    angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
+    .controller('CarouselController', ['$scope', '$timeout', '$transition', function ($scope, $timeout, $transition) {
+
+    }])
+    .directive('carousel', [function() {
+    return {  }
+    }]);
+    </script>
+</head>
+<body ng-controller="TypeCtrl">
+
+<div id="myCarousel" class="carousel slide" style = " margin:auto ;background-color :#FFFFFF  		; width:900px; height:320px;font-family:'楷体'; font-size: 20px;">
+    <!-- 轮播（Carousel）指标 -->
+    <ol class="carousel-indicators">
+        <li  ng-show="st1.s1.value1"  data-target="#myCarousel" data-slide-to="0" data-interval="1000"
+            class="active"></li>
+        <li   ng-show="st1.s3.value3"  data-target="#myCarousel" data-slide-to="1" data-interval="1000"></li>
+        <li  ng-show="st1.s5.value5"  data-target="#myCarousel" data-slide-to="2" data-interval="1000"></li>
+        <li  ng-show="st1.s2.value2" data-target="#myCarousel" data-slide-to="3" data-interval="1000"></li>
+        <li   ng-show="st1.s4.value4" data-target="#myCarousel" data-slide-to="4" data-interval="1000"></li>
+    </ol>
+
+    <!-- 轮播（Carousel）项目 -->
+    <div class="carousel-inner" ng-controller="TypeCtrl">
+
+        <div class="item active">
+        <div  ng-show="st1.s1.value1">
+              <div ng-controller="EIndexCtrl" >
+                  <a href="/endowment"><img src="public/images/endowment.jpg" alt="endowment" ></a>
+                <ul >
+                    <td font-famil="黑体">缴费年限至{{idx1.dm}}</a></td><td>&emsp;&emsp;&emsp; </td>
+                    <td font-famil="黑体">缴费总额{{idx1.pm|nulltozero}}</a></td><td>&emsp;&emsp;&emsp; </td>
+                    <td >拨付总额{{idx1.je|nulltozero}}</a></td><td>&emsp;&emsp;&emsp; </td>
+                </ul>
+                </div>
+        </div>
+            <div  ng-hide="st1.s1.value1">
+                <div  >
+                    <a href="/error"><img src="public/images/endowment.jpg" alt="endowment" ></a>
+                    <ul >
+                        <td font-famil="黑体">目前尚未参加此险种 </td>
+                    </ul>
+                </div>
+            </div>
+    </div>
+        <div class="item" >
+        <div  ng-show="st1.s3.value3" >
+               <div ng-controller="HIndexCtrl">
+                   <a href="/health"><img src="public/images/health.jpg" alt="health"></a>
+                   <ul>
+                       <td>缴费年限至{{idx2.dm}}</a></td><td>&emsp;&emsp;&emsp; </td>
+                       <td>缴费总额{{idx2.pm|nulltozero}}</a></td><td>&emsp;&emsp;&emsp; </td>
+                       <td>拨付总额{{idx2.je|nulltozero}}</a></td><td>&emsp;&emsp;&emsp; </td>
+                   </ul>
+        </div>
+        </div>
+            <div  ng-hide="st1.s3.value3" >
+                <div>
+                    <a href="/error"><img src="public/images/health.jpg" alt="health"></a>
+                    <ul>
+                        <td>目前尚未参加此险种 </td>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="item"  >
+        <div ng-show="st1.s5.value5">
+           <div ng-controller="BIndexCtrl">
+               <a href="/birth"> <img src="public/images/birth.jpg" alt="birth"></a>
+               <ul>
+                   <td>缴费年限至{{idx5.dm}}</a></td><td>&emsp;&emsp;&emsp; </td>
+                   <td>缴费总额{{idx5.pm|nulltozero}}</a></td><td>&emsp;&emsp;&emsp; </td>
+                   <td>拨付总额{{idx5.je|nulltozero}}</a></td><td>&emsp;&emsp;&emsp; </td>
+               </ul>
+           </div>
+            </div>
+            <div ng-hide="st1.s5.value5">
+                <div>
+                    <a href="/error"> <img src="public/images/birth.jpg" alt="birth"></a>
+                    <ul>
+                        <td>目前未参加此险种</td>
+                    </ul>
+                </div>
+            </div>
+
+         </div>
+
+        <div class="item" >
+        <div   ng-show="st1.s2.value2">
+         <div ng-controller="UIndexCtrl">
+             <a href="/unemployment">  <img src="public/images/unemploy.jpg" alt="unemployment"></a>
+             <ul>
+                 <td>缴费年限至{{idx3.dm}}</a></td><td>&emsp;&emsp;&emsp; </td>
+                 <td>缴费总额{{idx3.pm|nulltozero}}</a></td><td>&emsp;&emsp;&emsp; </td>
+                 <td>拨付总额{{idx3.je|nulltozero}}</a></td><td>&emsp;&emsp;&emsp; </td>
+             </ul>
+             </div>
+         </div>
+            <div   ng-hide="st1.s2.value2">
+                <div>
+                    <a href="/error">  <img src="public/images/unemploy.jpg" alt="unemployment"></a>
+                    <ul>
+                        <td>目前尚未参加此险种</td>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+<div class="item " >
+        <div   ng-show="st1.s4.value4" >
+          <div ng-controller="IIndexCtrl">
+              <a href="/injury"><img src="public/images/injury.jpg" alt="injury"></a>
+              <ul>
+                  <td>缴费年限至{{idx4.dm}}</a></td><td>&emsp;&emsp;&emsp; </td>
+                  <td>缴费总额{{idx4.pm|nulltozero}}</a></td><td>&emsp;&emsp;&emsp; </td>
+                  <td>拨付总额{{idx4.je|nulltozero}}</a></td><td>&emsp;&emsp;&emsp; </td>
+              </ul>
+           </div>
+    </div>
+    <div   ng-hide="st1.s4.value4" >
+        <div>
+            <a href="/error"><img src="public/images/injury.jpg" alt="injury"></a>
+            <ul>
+                <td>目前尚未参加此险种 </td>
+
+            </ul>
+        </div>
+    </div>
+        </div>
+    </div>
+
+    <!-- 轮播（Carousel）导航 -->
+    <a class="carousel-control left" href="#myCarousel"
+       data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel"
+       data-slide="next">&rsaquo;</a>
+</div>
+
+</body>
+</html>		
